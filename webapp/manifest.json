@@ -137,7 +137,7 @@
               "dateSettings": {
                 "useDateRange": true,
                 "fields": {
-                  "DeliveryDate": {
+                  "SourceTourDate": {
                     "defaultValue": {
                       "operation": "TODAY"
                     }
@@ -146,7 +146,8 @@
               }
             },
             "tableSettings": {
-              "type": "ResponsiveTable"
+              "type": "ResponsiveTable",
+              "multiSelect": true
             }
           }
         },
@@ -163,7 +164,12 @@
                 "entitySet": "CustomerTourSource",
                 "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
                 "component": {
-                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                  "name": "sap.suite.ui.generic.template.ObjectPage",
+                  "settings": {
+                    "tableSettings": {
+                      "multiSelect": true
+                    }
+                  }
                 }
               },
               "ObjectPage|to_CustomersTourTarget": {
@@ -171,7 +177,12 @@
                 "entitySet": "CustomerTourTarget",
                 "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
                 "component": {
-                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                  "name": "sap.suite.ui.generic.template.ObjectPage",
+                  "settings": {
+                    "tableSettings": {
+                      "multiSelect": true
+                    }
+                  }
                 }
               }
             }
