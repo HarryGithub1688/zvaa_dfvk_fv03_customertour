@@ -1,0 +1,11 @@
+#objForm--FC-NoHead-content {
+    display: flex;
+}
+
+.objPageTitleClass {
+    width: 100% !important;
+}
+
+.objPageSubtitleClass {
+    margin-top: 1mm !important;
+}
