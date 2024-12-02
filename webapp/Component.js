@@ -3,16 +3,27 @@ sap.ui.define(
     function (Component) {
         "use strict";
 
-       /*  function fun (x) {
+        function attachInitLisReport (x) {
             setTimeout(function () {
-                if ($("[id$='CustomerTourMap--listReport']").length >= 1) {
-                    init(this);
+                if ($("[id$='ListReport.view.ListReport::CustomerTourMap']").length >= 1) {
+                    initListReport(this);
                 } else {
-                    fun();
+                    attachInitLisReport();
                 }
             }.bind(this), x);
         };
-        fun(500); */
+        function attachInitDetails (x) {
+            setTimeout(function () {
+                if ($("[id$='ObjectPage.view.Details::CustomerTourMap']").length >= 1) {
+                    initObjectPage(this);
+                } else {
+                    attachInitDetails();
+                }
+            }.bind(this), x);
+        };
+
+        attachInitLisReport(500);
+        attachInitDetails(500);
 
         return Component.extend("hap.zvaadfvk00005.Component", {
             metadata: {
@@ -20,21 +31,23 @@ sap.ui.define(
             }
         });
 
-        function init (evn) {
-            addingNavigationObjectPage(evn);
+        /* List Report Controller */
+
+        function initListReport() {
+            //addingNavigationObjectPage();
         };
 
-        function addingNavigationObjectPage (evn) {
+        function addingNavigationObjectPage() {
             var listReportId = $("[id$='CustomerTourMap--listReport']")[0].id;
             var listReport = sap.ui.getCore().byId(listReportId);
             var oModel = listReport.getModel();
 
             oModel.attachRequestCompleted(function (evn) {
                 var url = evn.mParameters.url;
-                
+
                 if (url.includes("/to_CustomersTourSource")) {
                     //wait until object page finish to load
-                    function fun (x) {
+                    function fun(x) {
                         setTimeout(function () {
                             if ($("[id$='CustomersTourSource::responsiveTable']").length >= 1 && $("[id$='CustomerTourTarget::responsiveTable']").length >= 1) {
                                 var cTourSourceTableId = $("[id$='CustomersTourSource::responsiveTable']")[0].id;
@@ -56,8 +69,8 @@ sap.ui.define(
                                     var oModel = evn.getSource().getModel();
                                     var modelProperty = oModel.getProperty(modelPath);
                                     var thisTable = evn.getSource().getParent();
-                                    
-                                    function fun (x, modelProperty, thisTable) {
+
+                                    function fun(x, modelProperty, thisTable) {
                                         setTimeout(function () {
                                             if ($("[id$='CustomersTourSource--objectPage']").length >= 1) {
 
@@ -85,21 +98,21 @@ sap.ui.define(
                                                 objectPageHeaderTitle.setText(FullName);
 
                                                 //set object subtitle
-                                                if (!sap.ui.getCore().byId("objPageSubtitle")){
-                                                    objectPageHeaderTitle.getParent().addItem(new sap.m.Text({id: "objPageSubtitle"}));
+                                                if (!sap.ui.getCore().byId("objPageSubtitle")) {
+                                                    objectPageHeaderTitle.getParent().addItem(new sap.m.Text({ id: "objPageSubtitle" }));
                                                     var objPageSubtitle = sap.ui.getCore().byId("objPageSubtitle");
                                                 } else {
                                                     var objPageSubtitle = sap.ui.getCore().byId("objPageSubtitle");
                                                 }
-                                                var DeliveryDateFormated = DeliveryDate.toLocaleString('default', {day:"numeric", month:'short', year:'numeric'});
+                                                var DeliveryDateFormated = DeliveryDate.toLocaleString('default', { day: "numeric", month: 'short', year: 'numeric' });
                                                 objPageSubtitle.setText(DeliveryDateFormated);
                                                 objPageSubtitle.addStyleClass("objPageSubtitleClass"); //margin-top: 1mm;
 
                                                 //set object form section
                                                 if (!sap.ui.getCore().byId("objForm")) {
-                                                    var objSection = new sap.uxap.ObjectPageSection({id:"objSection"});
-                                                    var objSubSection = new sap.uxap.ObjectPageSubSection({id:"objSubSection"});
-                                                    var objForm = new sap.ui.layout.form.SimpleForm({id: "objForm"});
+                                                    var objSection = new sap.uxap.ObjectPageSection({ id: "objSection" });
+                                                    var objSubSection = new sap.uxap.ObjectPageSubSection({ id: "objSubSection" });
+                                                    var objForm = new sap.ui.layout.form.SimpleForm({ id: "objForm" });
 
                                                     //adding content
                                                     objectPage.addSection(objSection);
@@ -113,17 +126,17 @@ sap.ui.define(
 
                                                     //creating fields
                                                     //MainCustomerId
-                                                    objForm.addContent(new sap.m.Label({id: "MainCustomerIdLabel", labelFor: "MainCustomerIdTxt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "MainCustomerIdTxt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "MainCustomerIdLabel", labelFor: "MainCustomerIdTxt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "MainCustomerIdTxt" }));
                                                     //Location1
-                                                    objForm.addContent(new sap.m.Label({id: "Location1Label", labelFor: "Location1Txt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "Location1Txt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "Location1Label", labelFor: "Location1Txt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "Location1Txt" }));
                                                     //Location2
-                                                    objForm.addContent(new sap.m.Label({id: "Location2Label", labelFor: "Location2Txt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "Location2Txt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "Location2Label", labelFor: "Location2Txt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "Location2Txt" }));
                                                     //Location3
-                                                    objForm.addContent(new sap.m.Label({id: "Location3Label", labelFor: "Location3Txt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "Location3Txt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "Location3Label", labelFor: "Location3Txt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "Location3Txt" }));
                                                 }
 
                                                 //full fit content
@@ -153,8 +166,8 @@ sap.ui.define(
                                     var oModel = evn.getSource().getModel();
                                     var modelProperty = oModel.getProperty(modelPath);
                                     var thisTable = evn.getSource().getParent();
-                                    
-                                    function fun (x, modelProperty, thisTable) {
+
+                                    function fun(x, modelProperty, thisTable) {
                                         setTimeout(function () {
                                             if ($("[id$='CustomersTourTarget--objectPage']").length >= 1) {
 
@@ -182,21 +195,21 @@ sap.ui.define(
                                                 objectPageHeaderTitle.setText(FullName);
 
                                                 //set object subtitle
-                                                if (!sap.ui.getCore().byId("objPageSubtitle")){
-                                                    objectPageHeaderTitle.getParent().addItem(new sap.m.Text({id: "objPageSubtitle"}));
+                                                if (!sap.ui.getCore().byId("objPageSubtitle")) {
+                                                    objectPageHeaderTitle.getParent().addItem(new sap.m.Text({ id: "objPageSubtitle" }));
                                                     var objPageSubtitle = sap.ui.getCore().byId("objPageSubtitle");
                                                 } else {
                                                     var objPageSubtitle = sap.ui.getCore().byId("objPageSubtitle");
                                                 }
-                                                var DeliveryDateFormated = DeliveryDate.toLocaleString('default', {day:"numeric", month:'short', year:'numeric'});
+                                                var DeliveryDateFormated = DeliveryDate.toLocaleString('default', { day: "numeric", month: 'short', year: 'numeric' });
                                                 objPageSubtitle.setText(DeliveryDateFormated);
                                                 objPageSubtitle.addStyleClass("objPageSubtitleClass"); //margin-top: 1mm;
 
                                                 //set object form section
                                                 if (!sap.ui.getCore().byId("objForm")) {
-                                                    var objSection = new sap.uxap.ObjectPageSection({id:"objSection"});
-                                                    var objSubSection = new sap.uxap.ObjectPageSubSection({id:"objSubSection"});
-                                                    var objForm = new sap.ui.layout.form.SimpleForm({id: "objForm"});
+                                                    var objSection = new sap.uxap.ObjectPageSection({ id: "objSection" });
+                                                    var objSubSection = new sap.uxap.ObjectPageSubSection({ id: "objSubSection" });
+                                                    var objForm = new sap.ui.layout.form.SimpleForm({ id: "objForm" });
 
                                                     //adding content
                                                     objectPage.addSection(objSection);
@@ -210,17 +223,17 @@ sap.ui.define(
 
                                                     //creating fields
                                                     //MainCustomerId
-                                                    objForm.addContent(new sap.m.Label({id: "MainCustomerIdLabel", labelFor: "MainCustomerIdTxt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "MainCustomerIdTxt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "MainCustomerIdLabel", labelFor: "MainCustomerIdTxt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "MainCustomerIdTxt" }));
                                                     //Location1
-                                                    objForm.addContent(new sap.m.Label({id: "Location1Label", labelFor: "Location1Txt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "Location1Txt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "Location1Label", labelFor: "Location1Txt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "Location1Txt" }));
                                                     //Location2
-                                                    objForm.addContent(new sap.m.Label({id: "Location2Label", labelFor: "Location2Txt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "Location2Txt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "Location2Label", labelFor: "Location2Txt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "Location2Txt" }));
                                                     //Location3
-                                                    objForm.addContent(new sap.m.Label({id: "Location3Label", labelFor: "Location3Txt"}));
-                                                    objForm.addContent(new sap.m.Text({id: "Location3Txt"}));
+                                                    objForm.addContent(new sap.m.Label({ id: "Location3Label", labelFor: "Location3Txt" }));
+                                                    objForm.addContent(new sap.m.Text({ id: "Location3Txt" }));
                                                 }
 
                                                 //full fit content
@@ -251,39 +264,54 @@ sap.ui.define(
                         }.bind(this), x);
                     };
                     fun(500);
+
+                    /*
+
+                    //on manifest
+                    "pages": {
+                        "ObjectPage|to_CustomersTourSource": {
+                            "entitySet": "CustomerTourSource",
+                            "component": {
+                                "name": "sap.suite.ui.generic.template.ObjectPage",
+                                "settings": {
+                                    "tableSettings": {
+                                        "multiSelect": true
+                                    }
+                                }
+                            }
+                        },
+                        "ObjectPage|to_CustomersTourTarget": {
+                            "entitySet": "CustomersTourTarget",
+                            "component": {
+                                "name": "sap.suite.ui.generic.template.ObjectPage",
+                                "settings": {
+                                    "tableSettings": {
+                                        "multiSelect": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    */
                 }
             });
-        }
+        };
+
+        /* Object Page Controller */
+
+        function initObjectPage() {
+            setButtonActionType()
+        };
+
+        function setButtonActionType() {
+            var viewId = $("[id$='ObjectPage.view.Details::CustomerTourMap']")[0].id;
+            var moveToSourceBtn = sap.ui.getCore().byId(viewId + "--CustomerTourTarget::action::cds_zsd_vaa_dfvk_ui_fv03.cds_zsd_vaa_dfvk_ui_fv03_Entities::MoveToSource");
+            var moveToTargetBtn = sap.ui.getCore().byId(viewId + "--CustomersTourSource::action::cds_zsd_vaa_dfvk_ui_fv03.cds_zsd_vaa_dfvk_ui_fv03_Entities::MoveToTarget");
+            moveToSourceBtn.setType("Emphasized");
+            moveToTargetBtn.setType("Emphasized");
+        };
 
     }
 );
 
-/*
-
-//on manifest
-"pages": {
-    "ObjectPage|to_CustomersTourSource": {
-        "entitySet": "CustomerTourSource",
-        "component": {
-            "name": "sap.suite.ui.generic.template.ObjectPage",
-            "settings": {
-                "tableSettings": {
-                    "multiSelect": true
-                }
-            }
-        }
-    },
-    "ObjectPage|to_CustomersTourTarget": {
-        "entitySet": "CustomersTourTarget",
-        "component": {
-            "name": "sap.suite.ui.generic.template.ObjectPage",
-            "settings": {
-                "tableSettings": {
-                    "multiSelect": true
-                }
-            }
-        }
-    }
-}
-
-*/
