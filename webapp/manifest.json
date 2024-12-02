@@ -118,7 +118,10 @@
             "extensions": {
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                        "controllerName": ""
+                        "controllerName": "hap.zvaadfvk00005.ext.controller.ListReportExt"
+                    },
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "controllerName": "hap.zvaadfvk00005.ext.controller.ObjectPageExt"
                     }
                 }
             }
