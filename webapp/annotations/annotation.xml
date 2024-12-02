@@ -50,6 +50,47 @@
                 </Annotation>
             </Annotations> -->
 
+            <!-- object page default sort -->
+            <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.CustomersTourTargetType">
+            <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
+                <Record>
+                    <PropertyValue Property="Visualizations">
+                        <Collection>
+                            <AnnotationPath>@UI.LineItem</AnnotationPath>
+                        </Collection>
+                    </PropertyValue>
+                    <PropertyValue Property="SortOrder">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="Property" PropertyPath="SequenceNumber"/>
+                                <PropertyValue Property="Ascending" Bool="true"/>
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+            </Annotations>
+
+            <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.CustomersTourSourceType">
+            <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
+                <Record>
+                    <PropertyValue Property="Visualizations">
+                        <Collection>
+                            <AnnotationPath>@UI.LineItem</AnnotationPath>
+                        </Collection>
+                    </PropertyValue>
+                    <PropertyValue Property="SortOrder">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="Property" PropertyPath="SequenceNumber"/>
+                                <PropertyValue Property="Ascending" Bool="true"/>
+                            </Record>
+                        </Collection>
+                    </PropertyValue>
+                </Record>
+            </Annotation>
+            </Annotations>
+
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
