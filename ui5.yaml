@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: hap.zvaadfvk00005
+  name: hab.zvaadfvk00005
 type: application
 server:
   customMiddleware:
@@ -29,5 +29,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: hap.zvaadfvk00005
+        component: hab.zvaadfvk00005
         ui5Theme: sap_horizon

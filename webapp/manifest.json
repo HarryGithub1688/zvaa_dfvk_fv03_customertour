@@ -1,7 +1,7 @@
 {
     "_version": "1.48.0",
     "sap.app": {
-        "id": "hap.zvaadfvk00005",
+        "id": "hab.zvaadfvk00005",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -82,7 +82,7 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "hap.zvaadfvk00005.i18n.i18n"
+                    "bundleName": "hab.zvaadfvk00005.i18n.i18n"
                 }
             },
             "": {
@@ -118,10 +118,10 @@
             "extensions": {
                 "sap.ui.controllerExtensions": {
                     "sap.suite.ui.generic.template.ListReport.view.ListReport": {
-                        "controllerName": "hap.zvaadfvk00005.ext.controller.ListReportExt"
+                        "controllerName": "hab.zvaadfvk00005.ext.controller.ListReportExt"
                     },
                     "sap.suite.ui.generic.template.ObjectPage.view.Details": {
-                        "controllerName": "hap.zvaadfvk00005.ext.controller.ObjectPageExt"
+                        "controllerName": "hab.zvaadfvk00005.ext.controller.ObjectPageExt"
                     }
                 }
             }

@@ -71,7 +71,7 @@
             </Annotation>
             </Annotations>
 
-            <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.CustomersTourSourceType">
+            <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.CustomerTourSourceType">
             <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
                 <Record>
                     <PropertyValue Property="Visualizations">

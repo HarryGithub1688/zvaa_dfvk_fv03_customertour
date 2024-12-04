@@ -10,7 +10,7 @@
 |**Service URL**<br>http://fes-dev.harry.de:443/sap/opu/odata/sap/ZSB_VAA_DFVK_UI_FV03_O2|
 |**Module Name**<br>zvaadfvk00005|
 |**Application Title**<br>Kunde-Tour Zuordnung|
-|**Namespace**<br>hap|
+|**Namespace**<br>hab|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.108.19|
 |**Enable Code Assist Libraries**<br>False|
