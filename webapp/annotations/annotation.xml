@@ -10,11 +10,11 @@
 
             <!-- LFM annotations -->
 
-            <!-- date filter single date format -->
             <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.cds_zsd_vaa_dfvk_ui_fv03_Entities/CustomerTourMap">
+
+                <!-- date filter single date format -->
                 <Annotation Term="Capabilities.FilterRestrictions">
                     <Record>
-
                          <PropertyValue Property="FilterExpressionRestrictions">
                             <Collection>
                                 <Record>
@@ -23,14 +23,15 @@
                                 </Record>
                             </Collection>
                         </PropertyValue>
-
                     </Record>
                 </Annotation>
+
             </Annotations>
 
-            <!-- object page details navigation 
             <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.CustomersTourTargetType">
-                <Annotation Term="UI.Facets">
+
+                <!-- object page details navigation -->
+                <!-- <Annotation Term="UI.Facets">
                     <Collection>
                         <Record Type="UI.ReferenceFacet">
                             <PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
@@ -47,48 +48,90 @@
                             </PropertyValue>
                         </Record>
                     </Collection>
-                </Annotation>
-            </Annotations> -->
+                </Annotation> -->
 
-            <!-- object page default sort -->
+            </Annotations>
+
             <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.CustomersTourTargetType">
-            <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
-                <Record>
-                    <PropertyValue Property="Visualizations">
-                        <Collection>
-                            <AnnotationPath>@UI.LineItem</AnnotationPath>
-                        </Collection>
-                    </PropertyValue>
-                    <PropertyValue Property="SortOrder">
-                        <Collection>
-                            <Record>
-                                <PropertyValue Property="Property" PropertyPath="SequenceNumber"/>
-                                <PropertyValue Property="Ascending" Bool="true"/>
-                            </Record>
-                        </Collection>
-                    </PropertyValue>
-                </Record>
-            </Annotation>
+
+                <!-- object page default sort -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="SequenceNumber"/>
+                                    <PropertyValue Property="Ascending" Bool="true"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- side effect -> everytime one entity is reload, the other too --> <!-- not working -->
+                <!-- <Annotation Term="com.sap.vocabularies.Common.v1.SideEffects">
+                    <Record>
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="MoveToSource"/>
+                    </Record>
+                </Annotation> -->
+
             </Annotations>
 
             <Annotations Target="cds_zsd_vaa_dfvk_ui_fv03.CustomerTourSourceType">
-            <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
-                <Record>
-                    <PropertyValue Property="Visualizations">
-                        <Collection>
-                            <AnnotationPath>@UI.LineItem</AnnotationPath>
-                        </Collection>
-                    </PropertyValue>
-                    <PropertyValue Property="SortOrder">
-                        <Collection>
-                            <Record>
-                                <PropertyValue Property="Property" PropertyPath="SequenceNumber"/>
-                                <PropertyValue Property="Ascending" Bool="true"/>
-                            </Record>
-                        </Collection>
-                    </PropertyValue>
-                </Record>
-            </Annotation>
+
+                <!-- object page default sort -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="SequenceNumber"/>
+                                    <PropertyValue Property="Ascending" Bool="true"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- side effect -> everytime one entity is reload, the other too --> <!-- not working -->
+                <!-- <Annotation Term="com.sap.vocabularies.Common.v1.SideEffects" Qualifier="CalculatePrice">
+                    <Record>
+                        <PropertyValue Property="SourceProperties">
+                            <Collection>
+                                <PropertyPath>UnitPrice</PropertyPath>
+                                <PropertyPath>ProductQuantity</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TargetProperties">
+                            <Collection>
+                                <String>GrossPrice</String>
+                                <String>NetPriceIncludingTax</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="TriggerAction" String="STTA_SALES_ORDER_WD_20_SRV.STTA_SALES_ORDER_WD_20_SRV_Entities/CalculatePriceIncludingRegionalTax"/>
+                    </Record>
+                </Annotation> -->
+
             </Annotations>
 
         </Schema>
